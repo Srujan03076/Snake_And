@@ -1,17 +1,14 @@
 ﻿using System;
 
-namespace UC_1_PlayerAtPositionZero
+namespace UC_2_diceRoll
 {
-    class UC_1_PlayerAtPositionZero
+    class UC_2_diceRoll
     {
         static void Main(string[] args)
         {
-            int player = 1;
-            int StartingPosition = 0;
-            //computation
-            Console.WriteLine("No. of Player " + player);
-            Console.WriteLine("Position at start:- " + StartingPosition);
-            Console.ReadLine();
+            Random random = new Random();
+            int diceRoll = random.Next(0, 7);
+            Console.WriteLine("You got " + diceRoll + " in dice roll.");
         }
     }
 }

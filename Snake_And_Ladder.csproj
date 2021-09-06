@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>SnakeLadderProblem_CS.SnakeLadder</StartupObject>
+    <StartupObject>UC_2_diceRoll.UC_2_diceRoll</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
