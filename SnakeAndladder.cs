@@ -1,17 +1,29 @@
 ﻿using System;
 
-namespace UC_1_PlayerAtPositionZero
+namespace UC_3_optionsCheck
 {
-    class UC_1_PlayerAtPositionZero
+    class UC_3_optionsCheck
     {
         static void Main(string[] args)
         {
-            int player = 1;
-            int StartingPosition = 0;
-            //computation
-            Console.WriteLine("No. of Player " + player);
-            Console.WriteLine("Position at start:- " + StartingPosition);
-            Console.ReadLine();
+            Random random = new Random();
+            int diceRoll = random.Next(1, 6);
+            Console.WriteLine("You got " + diceRoll);
+            //Constants
+            const int samePosition = 0;
+            const int forward = 1;
+            Random random1 = new Random();
+            int options = random1.Next(0, 2);
+            if (options == samePosition)
+            {
+                Console.WriteLine("You Got No Option Stay in the Same Place.");
+            }
+            else if (options == forward)
+            {
+                Console.WriteLine("You Got Ladder Your moving ahead by " + diceRoll + " numbers.");
+            }
+            else
+                Console.WriteLine("You Got Snake Your Moving Backward by " + diceRoll + " numbers.");
         }
     }
 }
