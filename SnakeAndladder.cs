@@ -1,20 +1,20 @@
 ﻿using System;
 
-
-namespace UC_4_repeatTillPosition100
+namespace UC_5_exactWinningPosition100
 {
-    class UC_4_repeatTillPosition100
+    class UC_5_exactWinningPosition100
     {
         public const int maxPosition = 100;
         public const int samePosition = 0;
         public const int forward = 1;
         public const int backward = 2;
-        public static void repeatTillPosition100()
+        public static void exactWinningPosition100()
         {
             Console.WriteLine("-------------------------------------");             //For separation
 
             //Variables
             int currentPosition = 1;
+            int newPosition = 1;
 
             //Computation
             while (currentPosition <= maxPosition)
@@ -25,6 +25,23 @@ namespace UC_4_repeatTillPosition100
 
                 Random random1 = new Random();
                 int options = random1.Next(0, 3);
+
+                newPosition = currentPosition + dice;
+
+                if (newPosition == 100)
+                {
+                    currentPosition = currentPosition - dice;
+                    Console.WriteLine("Congratulations You Won the Game Your at 100 position :)");
+                    break;
+                }
+                else if (newPosition > 100)
+                {
+                    Console.WriteLine("You Got No Option stay in same Position.");
+                    Console.WriteLine("Your current Position is: " + currentPosition);
+                    Console.WriteLine("-------------------------------------");                     //For Separation
+                    continue;
+                }
+
 
                 if (options == samePosition)
                 {
@@ -40,12 +57,9 @@ namespace UC_4_repeatTillPosition100
                     currentPosition = currentPosition - dice;
                     Console.WriteLine("You Got Snakebite Your Moving Backward by " + dice + " numbers.");
                 }
-                if (currentPosition >= 100)
-                {
-                    Console.WriteLine("Congratulations You Won the Game Your at 100 position :)");
-                    break;
-                }
-                else if (currentPosition <= 0)
+
+
+                if (currentPosition <= 0)
                 {
                     Console.WriteLine("You lost the Game Your at 0 position. Restarting the Game :(");
                     currentPosition = currentPosition - currentPosition;
@@ -58,9 +72,9 @@ namespace UC_4_repeatTillPosition100
         {
             Console.WriteLine("HELLO WELCOME TO SNAKE AND LADDER GAME :)");
             Console.WriteLine("Single Player Game is started Your at position 0.");
-            UC_4_repeatTillPosition100.repeatTillPosition100();
-            Console.ReadLine();
-    }
+            UC_5_exactWinningPosition100.exactWinningPosition100();
+            Console.ReadKey();
         }
-    
+    }
 }
+    
